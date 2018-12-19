@@ -139,8 +139,7 @@ class RenameUploadTest extends TestCase
         $this->assertTrue($filter->getUseUploadName());
         $this->assertTrue($filter->getOverwrite());
         $this->assertTrue($filter->getRandomize());
-        $this->assertInstanceOf(StreamFactoryInterface::class, $filter->getStreamFactory());
-        $this->assertInstanceOf(UploadedFileFactoryInterface::class, $filter->getUploadFileFactory());
+        $this->assertInstanceOf(UploadedFileFactoryInterface::class, $filter->getUploadedFileFactory());
     }
 
     /**
@@ -221,7 +220,7 @@ class RenameUploadTest extends TestCase
         $this->assertEquals($targetFile, $filter->getTarget());
 
         $filter->setStreamFactory($streamFactory->reveal());
-        $filter->setUploadFileFactory($fileFactory->reveal());
+        $filter->setUploadedFileFactory($fileFactory->reveal());
 
         $moved = $filter($originalFile->reveal());
 

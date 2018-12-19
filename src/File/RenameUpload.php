@@ -421,7 +421,7 @@ class RenameUpload extends AbstractFilter
 
         $stream = $streamFactory->createStreamFromFile($targetFile);
 
-        $uploadedFileFactory = $this->getUploadFileFactory();
+        $uploadedFileFactory = $this->getUploadedFileFactory();
         if (! $uploadedFileFactory) {
             throw new Exception\RuntimeException(sprintf(
                 'No PSR-17 %s present; cannot filter file. Please pass the uploaded_file_factory'
