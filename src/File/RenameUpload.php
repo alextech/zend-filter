@@ -26,7 +26,7 @@ class RenameUpload extends AbstractFilter
         'overwrite'            => false,
         'randomize'            => false,
         'stream_factory'       => null,
-        'upload_file_factory'  => null,
+        'uploaded_file_factory'  => null,
     ];
 
     /**
@@ -101,7 +101,7 @@ class RenameUpload extends AbstractFilter
      */
     public function setUploadFileFactory(UploadedFileFactoryInterface $factory)
     {
-        $this->options['upload_file_factory'] = $factory;
+        $this->options['uploaded_file_factory'] = $factory;
         return $this;
     }
 
@@ -110,7 +110,7 @@ class RenameUpload extends AbstractFilter
      */
     public function getUploadFileFactory()
     {
-        return $this->options['upload_file_factory'];
+        return $this->options['uploaded_file_factory'];
     }
 
     /**
@@ -424,7 +424,7 @@ class RenameUpload extends AbstractFilter
         $uploadedFileFactory = $this->getUploadFileFactory();
         if (! $uploadedFileFactory) {
             throw new Exception\RuntimeException(sprintf(
-                'No PSR-17 %s present; cannot filter file. Please pass the upload_file_factory'
+                'No PSR-17 %s present; cannot filter file. Please pass the uploaded_file_factory'
                 . ' option with a %s instance when creating the filter for use with PSR-7.',
                 UploadedFileFactoryInterface::class,
                 UploadedFileFactoryInterface::class

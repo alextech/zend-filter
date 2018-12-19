@@ -133,11 +133,15 @@ class RenameUploadTest extends TestCase
             'use_upload_name' => true,
             'overwrite'       => true,
             'randomize'       => true,
+            'stream_factory'  => $this->prophesize(StreamFactoryInterface::class)->reveal(),
+            'uploaded_file_factory' => $this->prophesize(UploadedFileFactoryInterface::class)->reveal()
         ]);
         $this->assertEquals($this->sourceFile, $filter->getTarget());
         $this->assertTrue($filter->getUseUploadName());
         $this->assertTrue($filter->getOverwrite());
         $this->assertTrue($filter->getRandomize());
+        $this->assertInstanceOf(StreamFactoryInterface::class, $filter->getStreamFactory());
+        $this->assertInstanceOf(UploadedFileFactoryInterface::class, $filter->getUploadFileFactory());
     }
 
     /**

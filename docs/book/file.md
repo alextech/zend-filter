@@ -241,7 +241,7 @@ The following set of options are supported:
   Required when passing a [PSR-7 UploadedFileInterface](https://www.php-fig.org/psr/psr-7/#36-psrhttpmessageuploadedfileinterface)
   to the filter; used to create a new stream representing the renamed file.
   (Since 2.9.0)
-- `upload_file_factory` (`Psr\Http\Message\UploadedFileFactoryInterface`; default:
+- `uploaded_file_factory` (`Psr\Http\Message\UploadedFileFactoryInterface`; default:
   `null`): Required when passing a [PSR-7 UploadedFileInterface](https://www.php-fig.org/psr/psr-7/#36-psrhttpmessageuploadedfileinterface)
   to the filter; used to create a new uploaded file representation of the
   renamed file.  (Since 2.9.0)
@@ -328,7 +328,7 @@ $filter = new \Zend\Filter\File\RenameUpload([
     // @var StreamFactoryInterface $streamFactory
     'stream_factory'      => $streamFactory,
     // @var UploadedFileFactoryInterface $uploadedFileFactory
-    'upload_file_factory' => $uploadedFileFactory,
+    'uploaded_file_factory' => $uploadedFileFactory,
 ]);
 
 // @var ServerRequestInterface $request
