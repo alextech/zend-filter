@@ -356,6 +356,18 @@ foreach ($request->getUploadedFiles() as $uploadedFile) {
 > provides a PSR-17 implementation, but requires PHP 7.1. If you are still on
 > PHP 7.0, either upgrade, or find a compatible psr/http-factory-implementation.
 
+If already using `zend-diactoros` that comes with expressive, instances for `$streamFactory` and `$uploadedFileFactory`
+can be:
+```php
+use Zend\Diactoros\StreamFactory;
+use Zend\Diactoros\UploadedFileFactory;
+
+[
+    'stream_factory' => new StreamFactory(),
+    'upload_file_factory' => new UploadedFileFactory(), 
+]
+```
+
 ## Uppercase
 
 `Zend\Filter\File\Uppercase` can be used to convert all file contents to
