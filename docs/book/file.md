@@ -359,13 +359,18 @@ foreach ($request->getUploadedFiles() as $uploadedFile) {
 If already using `zend-diactoros` that comes with expressive, instances for `$streamFactory` and `$uploadedFileFactory`
 can be:
 ```php
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\StreamFactoryInterface;
 use Zend\Diactoros\StreamFactory;
 use Zend\Diactoros\UploadedFileFactory;
+use Zend\Filter\File\RenameUpload;
 
-[
-    'stream_factory' => new StreamFactory(),
-    'upload_file_factory' => new UploadedFileFactory(), 
-]
+$filter = new \Zend\Filter\File\RenameUpload([
+    'target'              => './data/uploads/',
+    'randomize'           => true,
+    'stream_factory'      => new StreamFactory(),
+    'uploaded_file_factory' => new UploadedFileFactory(),
+]);
 ```
 
 ## Uppercase

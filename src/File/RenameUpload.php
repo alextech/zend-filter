@@ -99,7 +99,7 @@ class RenameUpload extends AbstractFilter
      *     filtered PSR-7 UploadedFileInterface instances.
      * @return self
      */
-    public function setUploadFileFactory(UploadedFileFactoryInterface $factory)
+    public function setUploadedFileFactory(UploadedFileFactoryInterface $factory)
     {
         $this->options['uploaded_file_factory'] = $factory;
         return $this;
@@ -108,7 +108,7 @@ class RenameUpload extends AbstractFilter
     /**
      * @return null|UploadedFileFactoryInterface
      */
-    public function getUploadFileFactory()
+    public function getUploadedFileFactory()
     {
         return $this->options['uploaded_file_factory'];
     }
